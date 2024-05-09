@@ -64,6 +64,7 @@ function renderBooks() {
 
     const read_button = document.createElement("button");
     read_button.textContent = book.read;
+    read_button.classList.add('read-book');
     read_button.style.backgroundColor = book.read === "Read" ? "green" : "red";
     article.appendChild(read_button);
 
@@ -96,11 +97,28 @@ showButton.addEventListener("click", () => {
 document.addEventListener("click", (event) => {
   const removeButton = event.target.closest(".remove-book");
   if (removeButton) {
-      const parent = removeButton.parentNode;
-      const bookId = parent.getAttribute("book-index");
-      if (bookId && !isNaN(bookId)) {
-        myLibrary.splice(bookId, 1);
-        renderBooks();
+    const parent = removeButton.parentNode;
+    const bookId = parent.getAttribute("book-index");
+    if (bookId && !isNaN(bookId)) {
+      myLibrary.splice(bookId, 1);
+      renderBooks();
+    }
+  }
+});
+
+document.addEventListener("click", (event) => {
+  const readButton = event.target.closest(".read-book");
+  if (readButton) {
+    const parent = readButton.parentNode;
+    const bookId = parent.getAttribute("book-index");
+    if (bookId && !isNaN(bookId)) {
+        console.log('hiii')
+      if ((myLibrary[bookId].read == "Read")) {
+        myLibrary[bookId].read = "Not Read";
+      } else {
+        myLibrary[bookId].read = "Read";
+      }
+      renderBooks();
     }
   }
 });
