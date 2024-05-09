@@ -35,6 +35,7 @@ form.addEventListener("submit", (event) => {
 
   myLibrary.push(book); // Add the new book to the library array
   renderBooks(); // Update the UI to display the updated library
+  form.reset();
   dialog.close();
   console.log(myLibrary);
 });
@@ -84,14 +85,7 @@ showButton.addEventListener("click", () => {
   dialog.showModal();
 });
 
-// //
-// function removeBook(bookId) {
-//     const index = bookId;
-//     if (index !== -1) {
-//         myLibrary.splice(index, 1);
-//     }
-//     renderBooks();
-// }
+
 
 // event listerner on the remove button for all the articles
 document.addEventListener("click", (event) => {
@@ -120,5 +114,16 @@ document.addEventListener("click", (event) => {
       }
       renderBooks();
     }
+  }
+});
+
+
+// Close the dialog when clicked outside
+
+document.addEventListener('click', (event) => {
+  console.log(event.target);
+  if (!form.contains(event.target) && !showButton.contains(event.target)) {
+    form.reset();
+    dialog.close();
   }
 });
