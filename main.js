@@ -9,6 +9,8 @@ function Book(title, author, pages, read, id) {
   this.id = id;
 }
 
+
+
 const addBook = document.querySelector("#add-book");
 const dialog = document.querySelector("dialog");
 const form = dialog.querySelector("form");
@@ -60,18 +62,21 @@ function renderBooks() {
     article.appendChild(article_author);
 
     const article_page = document.createElement("p");
-    article_page.textContent = book.pages;
+    article_page.textContent = `${book.pages} Pages`;
     article.appendChild(article_page);
 
     const read_button = document.createElement("button");
     read_button.textContent = book.read;
     read_button.classList.add('read-book');
-    read_button.style.backgroundColor = book.read === "Read" ? "green" : "red";
+    read_button.style.backgroundColor = book.read === "Read" ? "#86efac" : "#fca5a5";  // "Read" ? green : red;
+    // read_button.style.transition = 'background-color 0.3s ease';
+    read_button.style.fontFamily = '"Poppins", sans-serif';
     article.appendChild(read_button);
 
     const remove_button = document.createElement("button");
     remove_button.textContent = "Remove";
     remove_button.classList.add("remove-book");
+    remove_button.style.fontFamily = '"Poppins", sans-serif';
     article.appendChild(remove_button);
 
     articleBody.appendChild(article);
@@ -127,3 +132,11 @@ document.addEventListener('click', (event) => {
     dialog.close();
   }
 });
+
+
+const b1 = new Book('The Great Gatsby', 'F. Scott Fitzgerald', 180, "Read", 0);
+const b2 = new Book('Don Quixote', 'Miguel de Cervantes', 1072, "Not read", 1);
+
+myLibrary.push(b1)
+myLibrary.push(b2)
+renderBooks();

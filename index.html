@@ -1,65 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Library Project</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="img\favicon\favicon-16x16.png" type="image/png" sizes="16x16">
-
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="icon"
+      href="img\favicon\favicon-16x16.png"
+      type="image/png"
+      sizes="16x16"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
     <div class="container">
-        <div class="header">
-            <h1>Library</h1>
-            <div class="login">
-                <button>Log In</button>
-            </div>
+      <div class="header">
+        <h1>Library</h1>
+        <div class="login">
+          <button>Log In</button>
         </div>
-        <div class="add-container">
-            <div class="add">
-                <dialog>
-                    <form>
-                        <h1>Add New Book?</h1>
-                        <div>
-                            <label for="author"></label>
-                            <input type="text" id="author" placeholder="Author" name="author" required>
-                          </div>
-                          <div>
-                            <label for="title"></label>
-                            <input type="text" id="title"  placeholder="Title" name="title" required>
-                          </div>
-                          <div>
-                            <label for="pages"></label>
-                            <input type="number" id="pages" placeholder="Pages" name="pages" required min="1">
-                          </div>
-                          <div id="check-read">
-                            <label for="read">Have you read it?</label>
-                            <input type="checkbox" id="read" name="read">
-                          </div>
-                          <button class="add-book">Submit</button>
-                    </form>
-                </dialog>
-                <button id="add-book">+ Add book</button>
-            </div>
+      </div>
+      <div class="add-container">
+        <div class="add">
+          <dialog>
+            <form>
+              <h1>Add New Book</h1>
+              <div>
+                <label for="author"></label>
+                <input
+                  type="text"
+                  id="author"
+                  placeholder="Author"
+                  name="author"
+                  required
+                />
+              </div>
+              <div>
+                <label for="title"></label>
+                <input
+                  type="text"
+                  id="title"
+                  placeholder="Title"
+                  name="title"
+                  required
+                />
+              </div>
+              <div>
+                <label for="pages"></label>
+                <input
+                  type="number"
+                  id="pages"
+                  placeholder="Pages"
+                  name="pages"
+                  required
+                  min="1"
+                />
+              </div>
+              <div id="check-read">
+                <label for="read">Have you read it? <input type="checkbox" id="read" name="read" /></label>
+                
+              </div>
+              <button class="add-book">Submit</button>
+            </form>
+          </dialog>
+          <button id="add-book">+ Add book</button>
         </div>
-        <div class="display">
-            <div class="article">
-                <p>title</p>
-                <p>Author</p>
-                <p>pages</p>
-                <button class="read-book">read</button>
-                <button class="remove-book">Remove</button>
-            </div>
+      </div>
+      <div class="display">
+        <div class="article">
+          <p>title</p>
+          <p>Author</p>
+          <p>pages</p>
+          <button class="read-book">read</button>
+          <button class="remove-book">Remove</button>
         </div>
-        <div class="footer">
-            <p>Copyright © 2024 Abdalla Alhag
-            <button id="github-icon">
-            <img src="img\github-mark.png" alt="github icon">
-            </button> 
-            </p>
-        </div>
+      </div>
+      <div class="footer">
+        <p>
+          Copyright © 2024 Abdalla Alhag
+          <button id="github-icon">
+            <img src="img\github-mark.png" alt="github icon" />
+          </button>
+        </p>
+      </div>
     </div>
     <script src="main.js"></script>
-</body>
+  </body>
 </html>
