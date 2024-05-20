@@ -1,15 +1,13 @@
 const myLibrary = [];
-
-function Book(title, author, pages, read, id) {
-  // the constructor...
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.read = read;
-  this.id = id;
+class Book{
+  constructor(title, author, pages, read, id){
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.read = read;
+    this.id = id;
+  }
 }
-
-
 
 const addBook = document.querySelector("#add-book");
 const dialog = document.querySelector("dialog");
@@ -27,19 +25,19 @@ form.addEventListener("submit", (event) => {
   const pages = formData.get("pages");
   const read = formData.get("read");
 
-  const book = {
+
+  const book = new Book(
     title,
-    author,
-    pages,
-    read: read ? "Read" : "Not Read", // Convert checkbox value to readable form
-    id: myLibrary.length,
-  };
+    author, 
+    pages, 
+    read ? "Read" : "Not Read",
+    myLibrary.length
+  );
 
   myLibrary.push(book); // Add the new book to the library array
   renderBooks(); // Update the UI to display the updated library
   form.reset();
   dialog.close();
-  console.log(myLibrary);
 });
 
 function renderBooks() {
@@ -126,7 +124,6 @@ document.addEventListener("click", (event) => {
 // Close the dialog when clicked outside
 
 document.addEventListener('click', (event) => {
-  console.log(event.target);
   if (!form.contains(event.target) && !showButton.contains(event.target)) {
     form.reset();
     dialog.close();
